@@ -16,7 +16,7 @@ class AIConfiguration(models.Model):
         ('openrouter', 'OpenRouter'),
         ('azure', 'Azure')
     ], string='Provider', default='nvidia')
-    api_key = fields.Char(string='API Key', default='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')
+    api_key = fields.Char(string='API Key')
     model_name = fields.Char(string='Model Name', default='meta/llama-3.1-8b-instruct')
     temperature = fields.Float(string='Temperature', default=0.7)
     max_tokens = fields.Integer(string='Max Tokens', default=1000)
