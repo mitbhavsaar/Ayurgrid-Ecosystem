@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_ayurgrid_root" name="Ayurgrid" sequence="10" web_icon="ayurgrid_base,static/description/icon.png"/>
+
+    <!-- Sub Menus -->
+    <menuitem id="menu_patient_registration" name="Patient Registration" parent="menu_ayurgrid_root" sequence="10"/>
+    <menuitem id="menu_hospital_setup" name="Hospital Setup" parent="menu_ayurgrid_root" sequence="20"/>
+    <menuitem id="menu_admin_setup" name="Admin Setup" parent="menu_ayurgrid_root" sequence="30"/>
+    
+    <!-- Admin Setup -->
+    <menuitem id="menu_organization" name="Organizations" parent="menu_admin_setup" sequence="10" action="action_ag_organization"/>
+    <menuitem id="menu_ai_configuration" name="AI Configuration" parent="menu_admin_setup" sequence="20" action="action_ag_ai_configuration"/>
+
+    <!-- Hospital Setup -->
+    <menuitem id="menu_hospital" name="Hospitals" parent="menu_hospital_setup" sequence="10" action="action_ag_hospital"/>
+    <menuitem id="menu_branch" name="Branches" parent="menu_hospital_setup" sequence="20" action="action_ag_branch"/>
+    <menuitem id="menu_department" name="Departments" parent="menu_hospital_setup" sequence="30" action="action_ag_department"/>
+    <menuitem id="menu_room" name="Rooms" parent="menu_hospital_setup" sequence="40" action="action_ag_room"/>
+
+    <!-- Patient Registration -->
+    <menuitem id="menu_patient" name="Patients" parent="menu_patient_registration" sequence="10" action="action_ag_patient"/>
+
+</odoo>

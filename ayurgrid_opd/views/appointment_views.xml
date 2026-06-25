@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_ag_opd_appointment_tree" model="ir.ui.view">
+        <field name="name">ag.opd.appointment.tree</field>
+        <field name="model">ag.opd.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Appointments">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="appointment_date"/>
+                <field name="appointment_type"/>
+                <field name="state" widget="badge" decoration-info="state == 'booked'" decoration-success="state == 'completed'" decoration-warning="state in ('cancelled', 'no_show')"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_ag_opd_appointment_form" model="ir.ui.view">
+        <field name="name">ag.opd.appointment.form</field>
+        <field name="model">ag.opd.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <header>
+                    <button name="action_check_in" string="Check In" type="object" class="oe_highlight" invisible="state != 'booked'"/>
+                    <button name="action_in_queue" string="Move to Queue" type="object" class="oe_highlight" invisible="state != 'checked_in'"/>
+                    <button name="action_start_consultation" string="Start Consultation" type="object" class="oe_highlight" invisible="state != 'in_queue'"/>
+                    <button name="action_cancel" string="Cancel" type="object" invisible="state in ('started', 'completed', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="booked,checked_in,in_queue,started,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_consultations" icon="fa-stethoscope">
+                            <field string="Consultations" name="consultation_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="doctor_id"/>
+                            <field name="appointment_type"/>
+                        </group>
+                        <group>
+                            <field name="appointment_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes" placeholder="Additional notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div> -->
+            </form>
+        </field>
+    </record>
+</odoo>

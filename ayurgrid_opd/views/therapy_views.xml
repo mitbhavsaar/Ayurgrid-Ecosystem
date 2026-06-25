@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Therapy Prescription Tree View -->
+    <record id="view_ag_opd_therapy_prescription_tree" model="ir.ui.view">
+        <field name="name">ag.opd.therapy.prescription.tree</field>
+        <field name="model">ag.opd.therapy.prescription</field>
+        <field name="arch" type="xml">
+            <list string="Therapy Prescriptions">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="procedure_name"/>
+                <field name="total_sessions"/>
+                <field name="start_date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Therapy Prescription Form View -->
+    <record id="view_ag_opd_therapy_prescription_form" model="ir.ui.view">
+        <field name="name">ag.opd.therapy.prescription.form</field>
+        <field name="model">ag.opd.therapy.prescription</field>
+        <field name="arch" type="xml">
+            <form string="Therapy Prescription">
+                <header>
+                    <button name="action_generate_sessions" type="object" string="Generate Sessions" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="consultation_id"/>
+                            <field name="patient_id"/>
+                            <field name="procedure_name"/>
+                            <field name="material"/>
+                        </group>
+                        <group>
+                            <field name="total_sessions"/>
+                            <field name="start_date"/>
+                            <field name="frequency"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sessions">
+                            <field name="session_ids">
+                                <list>
+                                    <field name="session_number"/>
+                                    <field name="session_date"/>
+                                    <field name="therapist_id"/>
+                                    <field name="status"/>
+                                    <field name="attendance"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Therapy Session (Register) Tree View -->
+    <record id="view_ag_opd_therapy_session_tree" model="ir.ui.view">
+        <field name="name">ag.opd.therapy.session.tree</field>
+        <field name="model">ag.opd.therapy.session</field>
+        <field name="arch" type="xml">
+            <list string="Therapy Register">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="procedure_name"/>
+                <field name="session_date"/>
+                <field name="therapist_id"/>
+                <field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Therapy Session Form View -->
+    <record id="view_ag_opd_therapy_session_form" model="ir.ui.view">
+        <field name="name">ag.opd.therapy.session.form</field>
+        <field name="model">ag.opd.therapy.session</field>
+        <field name="arch" type="xml">
+            <form string="Therapy Session">
+                <header>
+                    <button name="action_check_in" string="Check In" type="object" class="oe_highlight" invisible="status != 'scheduled'"/>
+                    <button name="action_start" string="Start Session" type="object" class="oe_highlight" invisible="status != 'checked_in'"/>
+                    <button name="action_complete" string="Complete" type="object" class="oe_highlight" invisible="status != 'in_progress'"/>
+                    <button name="action_missed" string="Mark as Missed" type="object" invisible="status in ('completed', 'cancelled', 'missed')"/>
+                    <button name="action_cancel" string="Cancel" type="object" invisible="status in ('completed', 'cancelled', 'missed')"/>
+                    <field name="status" widget="statusbar" statusbar_visible="scheduled,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="prescription_id"/>
+                            <field name="patient_id"/>
+                            <field name="procedure_name"/>
+                            <field name="session_number"/>
+                        </group>
+                        <group>
+                            <field name="session_date"/>
+                            <field name="therapist_id"/>
+                            <field name="attendance"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Remarks">
+                            <field name="remarks" placeholder="Notes during therapy..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div> -->
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ag_organization_super_admin,ag.organization.super.admin,model_ag_organization,group_ag_super_admin,1,1,1,1
+access_ag_organization_hospital_admin,ag.organization.hospital.admin,model_ag_organization,group_ag_hospital_admin,1,0,0,0
+access_ag_hospital_super_admin,ag.hospital.super.admin,model_ag_hospital,group_ag_super_admin,1,1,1,1
+access_ag_hospital_hospital_admin,ag.hospital.hospital.admin,model_ag_hospital,group_ag_hospital_admin,1,1,1,0
+access_ag_branch_super_admin,ag.branch.super.admin,model_ag_branch,group_ag_super_admin,1,1,1,1
+access_ag_branch_hospital_admin,ag.branch.hospital.admin,model_ag_branch,group_ag_hospital_admin,1,1,1,0
+access_ag_branch_branch_admin,ag.branch.branch.admin,model_ag_branch,group_ag_branch_admin,1,1,1,0
+access_ag_department_super_admin,ag.department.super.admin,model_ag_department,group_ag_super_admin,1,1,1,1
+access_ag_department_all,ag.department.all,model_ag_department,base.group_user,1,0,0,0
+access_ag_room_super_admin,ag.room.super.admin,model_ag_room,group_ag_super_admin,1,1,1,1
+access_ag_room_all,ag.room.all,model_ag_room,base.group_user,1,0,0,0
+access_ag_patient_super_admin,ag.patient.super.admin,model_ag_patient,group_ag_super_admin,1,1,1,1
+access_ag_patient_receptionist,ag.patient.receptionist,model_ag_patient,group_ag_receptionist,1,1,1,0
+access_ag_patient_doctor,ag.patient.doctor,model_ag_patient,group_ag_doctor,1,1,0,0
+access_ag_ai_configuration_super_admin,ag.ai.configuration.super.admin,model_ag_ai_configuration,group_ag_super_admin,1,1,1,1

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ag_ai_configuration_list" model="ir.ui.view">
+        <field name="name">ag.ai.configuration.list</field>
+        <field name="model">ag.ai.configuration</field>
+        <field name="arch" type="xml">
+            <list string="AI Configurations">
+                <field name="name"/>
+                <field name="ai_enabled" widget="boolean_toggle"/>
+                <field name="provider"/>
+                <field name="model_name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ag_ai_configuration_form" model="ir.ui.view">
+        <field name="name">ag.ai.configuration.form</field>
+        <field name="model">ag.ai.configuration</field>
+        <field name="arch" type="xml">
+            <form string="AI Configuration">
+                <header>
+                    <button name="action_test_connection" type="object" string="Test Connection" class="oe_highlight" invisible="ai_enabled == False"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="ai_enabled"/>
+                            <field name="provider" invisible="ai_enabled == False"/>
+                            <field name="api_key" password="True" invisible="ai_enabled == False"/>
+                            <field name="model_name" invisible="ai_enabled == False"/>
+                        </group>
+                        <group invisible="ai_enabled == False">
+                            <field name="temperature"/>
+                            <field name="max_tokens"/>
+                        </group>
+                    </group>
+                    <group string="Retrieval-Augmented Generation (RAG)" invisible="ai_enabled == False">
+                        <group>
+                            <field name="rag_enabled"/>
+                        </group>
+                        <group invisible="rag_enabled == False">
+                            <field name="embedding_provider"/>
+                            <field name="vector_db"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ag_ai_configuration" model="ir.actions.act_window">
+        <field name="name">AI Configuration</field>
+        <field name="res_model">ag.ai.configuration</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

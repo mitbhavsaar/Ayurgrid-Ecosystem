@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ag_branch_list" model="ir.ui.view">
+        <field name="name">ag.branch.list</field>
+        <field name="model">ag.branch</field>
+        <field name="arch" type="xml">
+            <list string="Branches">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="hospital_id"/>
+                <field name="branch_type"/>
+                <field name="city"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ag_branch_form" model="ir.ui.view">
+        <field name="name">ag.branch.form</field>
+        <field name="model">ag.branch</field>
+        <field name="arch" type="xml">
+            <form string="Branch">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="hospital_id"/>
+                            <field name="branch_type"/>
+                        </group>
+                        <group>
+                            <field name="opening_date"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Location">
+                            <group>
+                                <group>
+                                    <field name="address"/>
+                                    <field name="city"/>
+                                    <field name="district"/>
+                                </group>
+                                <group>
+                                    <field name="state_id"/>
+                                    <field name="latitude"/>
+                                    <field name="longitude"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Infrastructure">
+                            <group>
+                                <group>
+                                    <field name="total_area"/>
+                                    <field name="consultation_rooms"/>
+                                    <field name="therapy_rooms"/>
+                                    <field name="procedure_rooms"/>
+                                    <field name="minor_ot"/>
+                                    <field name="major_ot"/>
+                                </group>
+                                <group>
+                                    <field name="icu"/>
+                                    <field name="ward_beds"/>
+                                    <field name="private_rooms"/>
+                                    <field name="deluxe_rooms"/>
+                                    <field name="suites"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Ayurveda Services">
+                            <group>
+                                <group>
+                                    <field name="has_opd"/>
+                                    <field name="has_ipd"/>
+                                    <field name="has_panchakarma"/>
+                                    <field name="has_agnikarma"/>
+                                    <field name="has_ksharasutra"/>
+                                </group>
+                                <group>
+                                    <field name="has_jalaukavcharana"/>
+                                    <field name="has_raktamokshana"/>
+                                    <field name="has_yoga"/>
+                                    <field name="has_physiotherapy"/>
+                                    <field name="has_dietetics"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Human Resource">
+                            <group>
+                                <group>
+                                    <field name="doctors_count"/>
+                                    <field name="therapists_count"/>
+                                    <field name="nurses_count"/>
+                                    <field name="receptionists_count"/>
+                                </group>
+                                <group>
+                                    <field name="billing_staff_count"/>
+                                    <field name="pharmacists_count"/>
+                                    <field name="attendants_count"/>
+                                    <field name="housekeeping_count"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Regulatory">
+                            <group>
+                                <group>
+                                    <field name="clinical_registration"/>
+                                    <field name="rohini"/>
+                                    <field name="nabh"/>
+                                    <field name="biomedical_waste"/>
+                                    <field name="fire_noc"/>
+                                    <field name="lift_license"/>
+                                    <field name="pollution_noc"/>
+                                    <field name="local_authority_noc"/>
+                                </group>
+                                <group>
+                                    <field name="clinical_reg_expiry"/>
+                                    <field name="rohini_expiry"/>
+                                    <field name="nabh_expiry"/>
+                                    <field name="biomedical_expiry"/>
+                                    <field name="fire_noc_expiry"/>
+                                    <field name="lift_license_expiry"/>
+                                    <field name="pollution_noc_expiry"/>
+                                    <field name="local_auth_noc_expiry"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Financial &amp; Digital">
+                            <group>
+                                <group string="Financial">
+                                    <field name="bank_accounts"/>
+                                    <field name="upi"/>
+                                    <field name="payment_gateway"/>
+                                    <field name="gst"/>
+                                    <field name="tds"/>
+                                    <field name="accounting_start_date"/>
+                                </group>
+                                <group string="Digital">
+                                    <field name="domain"/>
+                                    <field name="subdomain"/>
+                                    <field name="whatsapp_number"/>
+                                    <field name="sms_gateway"/>
+                                    <field name="email_smtp"/>
+                                    <field name="google_business_profile"/>
+                                    <field name="social_media_links"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ag_branch" model="ir.actions.act_window">
+        <field name="name">Branches</field>
+        <field name="res_model">ag.branch</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

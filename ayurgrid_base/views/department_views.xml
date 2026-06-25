@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ag_department_list" model="ir.ui.view">
+        <field name="name">ag.department.list</field>
+        <field name="model">ag.department</field>
+        <field name="arch" type="xml">
+            <list string="Departments" editable="bottom">
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_ag_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">ag.department</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Actions -->
+    <record id="action_ag_opd_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">ag.opd.appointment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_ag_opd_consultation" model="ir.actions.act_window">
+        <field name="name">Consultations</field>
+        <field name="res_model">ag.opd.consultation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_ag_opd_therapy_prescription" model="ir.actions.act_window">
+        <field name="name">Therapy Prescriptions</field>
+        <field name="res_model">ag.opd.therapy.prescription</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_ag_opd_therapy_session" model="ir.actions.act_window">
+        <field name="name">Therapy Sessions (Register)</field>
+        <field name="res_model">ag.opd.therapy.session</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_ag_opd_root" name="OPD" sequence="10" web_icon="ayurgrid_opd,static/description/icon.png"/>
+    
+    <menuitem id="menu_ag_opd_appointments" name="Appointments" parent="menu_ag_opd_root" action="action_ag_opd_appointment" sequence="10"/>
+    <menuitem id="menu_ag_opd_consultations" name="Consultations" parent="menu_ag_opd_root" action="action_ag_opd_consultation" sequence="20"/>
+    
+    <menuitem id="menu_ag_opd_therapies" name="Therapies" parent="menu_ag_opd_root" sequence="30"/>
+    <menuitem id="menu_ag_opd_therapy_prescriptions" name="Prescriptions" parent="menu_ag_opd_therapies" action="action_ag_opd_therapy_prescription" sequence="10"/>
+    <menuitem id="menu_ag_opd_therapy_sessions" name="Register" parent="menu_ag_opd_therapies" action="action_ag_opd_therapy_session" sequence="20"/>
+    
+</odoo>

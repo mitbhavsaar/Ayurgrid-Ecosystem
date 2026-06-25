@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- list View -->
+    <record id="view_ag_hospital_list" model="ir.ui.view">
+        <field name="name">ag.hospital.list</field>
+        <field name="model">ag.hospital</field>
+        <field name="arch" type="xml">
+            <list string="Hospitals">
+                <field name="name"/>
+                <field name="organization_id"/>
+                <field name="registration_number"/>
+                <field name="email"/>
+                <field name="mobile"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_ag_hospital_form" model="ir.ui.view">
+        <field name="name">ag.hospital.form</field>
+        <field name="model">ag.hospital</field>
+        <field name="arch" type="xml">
+            <form string="Hospital">
+                <sheet>
+                    <field name="logo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="organization_id"/>
+                            <field name="registration_number"/>
+                            <field name="clinical_establishment_no"/>
+                            <field name="rohini_id"/>
+                            <field name="nabh_status"/>
+                            <field name="ayush_registration"/>
+                        </group>
+                        <group>
+                            <field name="gstin"/>
+                            <field name="pan"/>
+                            <field name="email" widget="email"/>
+                            <field name="mobile" widget="phone"/>
+                            <field name="website" widget="url"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Branding">
+                            <group>
+                                <field name="stamp" widget="image"/>
+                                <field name="signature" widget="image"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_ag_hospital" model="ir.actions.act_window">
+        <field name="name">Hospitals</field>
+        <field name="res_model">ag.hospital</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Hospital
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Security Category -->
+        <record model="ir.module.category" id="module_category_ayurgrid">
+            <field name="name">Ayurgrid PMS</field>
+            <field name="description">Ayurgrid Property Management System</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Privilege -->
+        <record id="privilege_ayurgrid" model="res.groups.privilege">
+            <field name="name">Ayurgrid Roles</field>
+            <field name="category_id" ref="module_category_ayurgrid"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Groups -->
+        <record id="group_ag_super_admin" model="res.groups">
+            <field name="name">Super Admin</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_hospital_admin" model="res.groups">
+            <field name="name">Hospital Admin</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_branch_admin" model="res.groups">
+            <field name="name">Branch Admin</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_doctor" model="res.groups">
+            <field name="name">Doctor</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_receptionist" model="res.groups">
+            <field name="name">Receptionist</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_therapist" model="res.groups">
+            <field name="name">Therapist</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_billing_executive" model="res.groups">
+            <field name="name">Billing Executive</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_insurance_executive" model="res.groups">
+            <field name="name">Insurance Executive</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+
+        <record id="group_ag_pharmacist" model="res.groups">
+            <field name="name">Pharmacist</field>
+            <field name="privilege_id" ref="privilege_ayurgrid"/>
+        </record>
+    </data>
+</odoo>

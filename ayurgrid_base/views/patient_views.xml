@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ag_patient_list" model="ir.ui.view">
+        <field name="name">ag.patient.list</field>
+        <field name="model">ag.patient</field>
+        <field name="arch" type="xml">
+            <list string="Patients">
+                <field name="patient_id"/>
+                <field name="name"/>
+                <field name="mobile"/>
+                <field name="gender"/>
+                <field name="age"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ag_patient_form" model="ir.ui.view">
+        <field name="name">ag.patient.form</field>
+        <field name="model">ag.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <header>
+                    <button name="action_ai_predict_prakriti" type="object" string="Predict Prakriti (AI)" class="oe_highlight" icon="fa-magic"/>
+                </header>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="patient_id" readonly="1"/>
+                        </h1>
+                        <h2>
+                            <field name="name" readonly="1" force_save="1"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group string="Basic Info">
+                            <field name="first_name"/>
+                            <field name="middle_name"/>
+                            <field name="last_name"/>
+                            <field name="uhid"/>
+                            <field name="gender"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                        </group>
+                        <group string="Contact Info">
+                            <field name="mobile" widget="phone"/>
+                            <field name="alternate_mobile" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="marital_status"/>
+                            <field name="occupation"/>
+                            <field name="education"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Address &amp; ID">
+                            <group>
+                                <group string="Address">
+                                    <field name="current_address"/>
+                                    <field name="permanent_address"/>
+                                    <field name="country_id"/>
+                                    <field name="state_id"/>
+                                    <field name="district"/>
+                                    <field name="taluka"/>
+                                    <field name="village"/>
+                                    <field name="pincode"/>
+                                    <field name="geo_coordinates"/>
+                                </group>
+                                <group string="Government Identity">
+                                    <field name="aadhaar"/>
+                                    <field name="pan"/>
+                                    <field name="abha_id"/>
+                                    <field name="passport"/>
+                                    <field name="driving_license"/>
+                                    <field name="voter_id"/>
+                                    <field name="upload_documents"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Emergency &amp; Medicolegal">
+                            <group>
+                                <group string="Emergency Contact">
+                                    <field name="emergency_name"/>
+                                    <field name="emergency_relation"/>
+                                    <field name="emergency_mobile"/>
+                                    <field name="emergency_alt_mobile"/>
+                                    <field name="emergency_address"/>
+                                </group>
+                                <group string="Medicolegal Information">
+                                    <field name="consent_status"/>
+                                    <field name="mlc_status"/>
+                                    <field name="police_information"/>
+                                    <field name="guardian_information"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Ayurveda Registration">
+                            <group>
+                                <group string="Prakriti Assessment">
+                                    <field name="prakriti_vata" widget="percentage"/>
+                                    <field name="prakriti_pitta" widget="percentage"/>
+                                    <field name="prakriti_kapha" widget="percentage"/>
+                                    <field name="assessment_method"/>
+                                    <field name="assessor_id"/>
+                                    <field name="assessment_date"/>
+                                </group>
+                                <group string="Vikriti Assessment">
+                                    <field name="vikriti_vata" widget="percentage"/>
+                                    <field name="vikriti_pitta" widget="percentage"/>
+                                    <field name="vikriti_kapha" widget="percentage"/>
+                                    <field name="current_imbalance"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Dashavidha Pariksha">
+                                    <field name="d_prakriti"/>
+                                    <field name="d_vikriti"/>
+                                    <field name="d_sara"/>
+                                    <field name="d_samhanana"/>
+                                    <field name="d_pramana"/>
+                                    <field name="d_satmya"/>
+                                    <field name="d_satva"/>
+                                    <field name="d_aharashakti"/>
+                                    <field name="d_vyayamashakti"/>
+                                    <field name="d_vaya"/>
+                                </group>
+                                <group string="Ashtavidha Pariksha">
+                                    <field name="a_nadi"/>
+                                    <field name="a_mala"/>
+                                    <field name="a_mutra"/>
+                                    <field name="a_jihva"/>
+                                    <field name="a_shabda"/>
+                                    <field name="a_sparsha"/>
+                                    <field name="a_drik"/>
+                                    <field name="a_akruti"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Lifestyle">
+                            <group>
+                                <group>
+                                    <field name="wake_up_time" widget="float_time"/>
+                                    <field name="sleep_time" widget="float_time"/>
+                                    <field name="diet_pattern"/>
+                                    <field name="addictions"/>
+                                </group>
+                                <group>
+                                    <field name="exercise"/>
+                                    <field name="occupation_type"/>
+                                    <field name="stress_level"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ag_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">ag.patient</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a new Patient
+            </p>
+        </field>
+    </record>
+</odoo>

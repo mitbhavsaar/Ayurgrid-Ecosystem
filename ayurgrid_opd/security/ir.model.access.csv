@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ag_opd_appointment,ag.opd.appointment,model_ag_opd_appointment,base.group_user,1,1,1,1
+access_ag_opd_consultation,ag.opd.consultation,model_ag_opd_consultation,base.group_user,1,1,1,1
+access_ag_opd_complaint,ag.opd.complaint,model_ag_opd_complaint,base.group_user,1,1,1,1
+access_ag_opd_prescription_line,ag.opd.prescription_line,model_ag_opd_prescription_line,base.group_user,1,1,1,1
+access_ag_opd_therapy_prescription,ag.opd.therapy_prescription,model_ag_opd_therapy_prescription,base.group_user,1,1,1,1
+access_ag_opd_therapy_session,ag.opd.therapy_session,model_ag_opd_therapy_session,base.group_user,1,1,1,1
