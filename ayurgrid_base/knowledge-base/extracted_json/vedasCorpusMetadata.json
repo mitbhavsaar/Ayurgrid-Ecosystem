@@ -1,0 +1,17 @@
+{
+  "totalRecords": 2343,
+  "collections": [
+    "Charaka Samhita",
+    "Sushruta Samhita",
+    "IRJAY",
+    "Rasa Jala Nidhi"
+  ],
+  "collectionCounts": {
+    "Charaka Samhita": 643,
+    "Sushruta Samhita": 366,
+    "IRJAY": 483,
+    "Rasa Jala Nidhi": 851
+  },
+  "source": "Indian Vedas and Ayurveda Corpus (HuggingFace shinigamiRaj/IndianVedasOriginal)",
+  "license": "Public Domain"
+}

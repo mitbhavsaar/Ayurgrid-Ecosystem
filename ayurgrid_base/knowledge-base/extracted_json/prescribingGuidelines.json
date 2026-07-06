@@ -1,0 +1,25 @@
+{
+  "beforeCombining": [
+    "Consult qualified Ayurvedic practitioner",
+    "Disclose all medications to both practitioners",
+    "Start with single herb at low dose",
+    "Monitor for side effects",
+    "Keep 2-3 hour gap between herbs and medications",
+    "Regular follow-up"
+  ],
+  "contraindications": [
+    "Pregnancy - avoid most herbs",
+    "Breastfeeding - limited herbs safe",
+    "Kidney/liver disease - avoid many herbs",
+    "Autoimmune conditions - avoid immune-stimulating herbs",
+    "Surgery - stop herbs 2 weeks before"
+  ],
+  "generalPrinciples": [
+    "Prakriti-based prescription",
+    "Start low, go slow",
+    "Quality matters - use reputed brands",
+    "Seasonal considerations",
+    "Pathya (diet) as important as medicine",
+    "Duration: Acute 1-2 weeks, Chronic 1-3 months"
+  ]
+}

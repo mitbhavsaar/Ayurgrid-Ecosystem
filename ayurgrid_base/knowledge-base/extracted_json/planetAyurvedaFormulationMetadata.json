@@ -1,0 +1,20 @@
+{
+  "totalFormulations": 1265,
+  "source": "Planet Ayurveda Classical Formulations",
+  "categoryCounts": {
+    "gutika": 586,
+    "guggulu": 30,
+    "kashaya": 54,
+    "asava": 61,
+    "pak": 4,
+    "rasa": 183,
+    "taila": 124,
+    "ark": 36,
+    "avaleha": 48,
+    "bhasma": 38,
+    "choorna": 52,
+    "ghrita": 49
+  },
+  "avgSections": 5,
+  "totalContentKb": 6885
+}

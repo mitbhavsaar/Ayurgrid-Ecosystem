@@ -1,0 +1,54 @@
+{
+  "name": "Ashtanga Hridaya",
+  "author": "Vagbhata",
+  "period": "7th Century CE",
+  "description": "Ashtanga Hridaya is one of the three major classical texts of Ayurveda (Brihat Trayi), along with Charaka Samhita and Sushruta Samhita. Written by Vagbhata, it is a comprehensive compilation and systematization of Ayurvedic knowledge. The name means \"Heart of the Eight Branches\" referring to the eight limbs of Ayurveda (Ashtanga Ayurveda).",
+  "structure": [
+    "Sutrasthana (General principles - 20 chapters)",
+    "Nidanasthana (Pathology/diagnosis - 16 chapters)",
+    "Sharirasthana (Anatomy/physiology - 12 chapters)",
+    "Kalpasthana (Toxicology/pharmacology - 12 chapters)",
+    "Chikitsasthana (Therapeutics/treatment - 38 chapters)",
+    "Uttarasthana (Special topics - 40 chapters)"
+  ],
+  "totalChapters": 138,
+  "sthanaCounts": {
+    "Sutrasthana": 20,
+    "Nidanasthana": 16,
+    "Sharirasthana": 12,
+    "Kalpasthana": 12,
+    "Chikitsasthana": 38,
+    "Uttarasthana": 40
+  },
+  "keyContributions": [
+    "Systematic compilation of earlier Ayurvedic knowledge",
+    "Integration of Charaka and Sushruta traditions",
+    "Detailed pharmacological classifications",
+    "Comprehensive disease descriptions with treatments",
+    "Detailed Sharirasthana (anatomy and embryology)",
+    "Kashaya Kalpana (decoction preparations) detailed classifications",
+    "Practical clinical protocols for daily practice",
+    "Madhura, Amla, Lavana, Katu, Tikta, Kashaya - six taste classifications with clinical applications",
+    "Detailed Nidana (etiology) and Chikitsa (treatment) for each disease",
+    "Sharirasthana chapters on conception, fetal development, and postnatal care"
+  ],
+  "keyConcepts": [
+    "Ashtanga Ayurveda - Eight branches of Ayurveda",
+    "Tridosha theory - Vata, Pitta, Kapha",
+    "Sapta Dhatu - Seven body tissues",
+    "Agni - Digestive fire",
+    "Ama - Metabolic toxins",
+    "Prakriti - Constitutional type",
+    "Vikriti - Imbalance state",
+    "Sama/ Nirama - Toxic/toxin-free states",
+    "Kashaya (decoction) preparation methods",
+    "Basti (enema) therapy as best Vata treatment",
+    "Rasayana (rejuvenation) therapies",
+    "Vajikarana (aphrodisiac) therapies",
+    "Panchakarma - Five detoxification procedures",
+    "Graha Chikitsa - Treatment of psychological disorders",
+    "Embryology and fetal development",
+    "Dinacharya - Daily regimen",
+    "Ritucharya - Seasonal regimen"
+  ]
+}

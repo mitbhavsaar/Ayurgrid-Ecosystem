@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ag_rag_sync_wizard_form" model="ir.ui.view">
+        <field name="name">ag.rag.sync.wizard.form</field>
+        <field name="model">ag.rag.sync.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Synchronize Knowledge Base">
+                <sheet>
+                    <div class="oe_title">
+                        <h2>Knowledge Base Synchronizer</h2>
+                        <p class="text-muted">
+                            This tool automatically scans the Ayurvedic database files, breaks them down into semantic chunks, generates vector embeddings using your configured provider, and updates the vector search index.
+                        </p>
+                    </div>
+                    <group>
+                        <group string="Sync Step Configuration">
+                            <field name="import_files" widget="boolean_toggle"/>
+                            <field name="rebuild_embeddings" widget="boolean_toggle"/>
+                            <field name="optimize_index" widget="boolean_toggle"/>
+                        </group>
+                        <group string="Processing Controls" invisible="rebuild_embeddings == False">
+                            <field name="limit_docs"/>
+                            <div class="text-muted col-span-2" style="font-size: 0.9em; margin-top: 10px;">
+                                * Processing all 38,000+ files at once will hit API rate limits or timeout. It is recommended to process files in batches (e.g. 20 documents per run). Set to 0 to run all.
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_sync" type="object" string="Start Sync" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ag_rag_sync_wizard" model="ir.actions.act_window">
+        <field name="name">Synchronize Knowledge Base</field>
+        <field name="res_model">ag.rag.sync.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

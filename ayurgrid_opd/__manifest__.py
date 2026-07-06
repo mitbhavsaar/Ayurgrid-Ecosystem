@@ -22,7 +22,14 @@ Features include:
         'views/appointment_views.xml',
         'views/consultation_views.xml',
         'views/therapy_views.xml',
+        'report/consultation_report.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'ayurgrid_opd/static/src/widgets/chatter_quick_message/chatter_quick_message_patch.js',
+            'ayurgrid_opd/static/src/widgets/chatter_quick_message/chatter_quick_message_patch.xml',
+        ]
+    },
     'installable': True,
     'application': True,
     'license': 'LGPL-3',

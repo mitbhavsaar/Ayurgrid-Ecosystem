@@ -1,0 +1,50 @@
+[
+  {
+    "number": 1,
+    "name": "Sutra Sthana",
+    "chapterCount": 30,
+    "shlokaCount": 1014
+  },
+  {
+    "number": 2,
+    "name": "Nidana Sthana",
+    "chapterCount": 8,
+    "shlokaCount": 191
+  },
+  {
+    "number": 3,
+    "name": "Vimana Sthana",
+    "chapterCount": 8,
+    "shlokaCount": 302
+  },
+  {
+    "number": 4,
+    "name": "Sharira Sthana",
+    "chapterCount": 8,
+    "shlokaCount": 419
+  },
+  {
+    "number": 5,
+    "name": "Indriya Sthana",
+    "chapterCount": 12,
+    "shlokaCount": 162
+  },
+  {
+    "number": 6,
+    "name": "Chikitsa Sthana",
+    "chapterCount": 30,
+    "shlokaCount": 1979
+  },
+  {
+    "number": 7,
+    "name": "Kalpa Sthana",
+    "chapterCount": 12,
+    "shlokaCount": 230
+  },
+  {
+    "number": 8,
+    "name": "Siddhi Sthana",
+    "chapterCount": 12,
+    "shlokaCount": 355
+  }
+]

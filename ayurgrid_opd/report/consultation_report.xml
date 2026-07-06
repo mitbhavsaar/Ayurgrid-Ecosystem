@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Report Action -->
+    <record id="action_report_opd_consultation" model="ir.actions.report">
+        <field name="name">OPD Consultation Report</field>
+        <field name="model">ag.opd.consultation</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ayurgrid_opd.report_consultation_template</field>
+        <field name="report_file">ayurgrid_opd.report_consultation_template</field>
+        <field name="binding_model_id" ref="model_ag_opd_consultation"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report QWeb Template -->
+    <template id="report_consultation_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <style type="text/css">
+                        .opd-container {
+                            font-family: Arial, sans-serif;
+                            font-size: 10px;
+                            color: #000;
+                        }
+                        .opd-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-bottom: 8px;
+                        }
+                        .opd-table th, .opd-table td {
+                            border: 1px solid #000000;
+                            padding: 3px 5px;
+                            vertical-align: middle;
+                        }
+                        .opd-table th {
+                            background-color: #f1f5f9;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                        .opd-header {
+                            text-align: center;
+                            background-color: #cbd5e1;
+                            font-weight: bold;
+                            font-size: 13px;
+                            padding: 5px;
+                            border: 1.5px solid #000000;
+                            margin-bottom: 10px;
+                        }
+                        .opd-section-title {
+                            background-color: #cbd5e1;
+                            font-weight: bold;
+                            text-align: center;
+                            font-size: 10px;
+                        }
+                        .opd-label {
+                            font-weight: bold;
+                            background-color: #f8fafc;
+                            width: 18%;
+                        }
+                        .opd-value {
+                            width: 32%;
+                        }
+                        .opd-nowrap {
+                            white-space: nowrap;
+                        }
+                        .opd-half-table {
+                            width: 49.3%;
+                            display: inline-block;
+                            vertical-align: top;
+                        }
+                        .opd-break-avoid {
+                            page-break-inside: avoid;
+                        }
+                    </style>
+                    <div class="opd-container">
+                        <!-- 1. Report Title -->
+                        <div class="opd-header">
+                            OPD CONSULTATION
+                        </div>
+
+                        <!-- 2. Patient Info Block -->
+                        <table class="opd-table">
+                            <tr>
+                                <td class="opd-label" style="width:15%;">Patient Name:</td>
+                                <td style="width:30%;"><span t-field="doc.patient_id.name"/></td>
+                                <td class="opd-label" style="width:10%;">Age/Sex:</td>
+                                <td style="width:15%;">
+                                    <span t-field="doc.patient_id.age"/> Yrs /
+                                    <span t-field="doc.patient_id.gender"/>
+                                </td>
+                                <td class="opd-label" style="width:8%;">UHID:</td>
+                                <td style="width:12%;"><span t-field="doc.patient_id.uhid"/></td>
+                                <td class="opd-label opd-nowrap" style="width:8%;">Mobile:</td>
+                                <td class="opd-nowrap" style="width:12%;"><span t-field="doc.patient_id.mobile"/></td>
+                            </tr>
+                            <tr>
+                                <td class="opd-label">Address:</td>
+                                <td colspan="7"><span t-field="doc.patient_id.current_address"/></td>
+                            </tr>
+                        </table>
+
+                        <!-- 3. Chief Complaints -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="4" class="opd-section-title">Chief Complaints</th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 25%;">Sanskrit Terms</th>
+                                    <th style="width: 35%;">English Description</th>
+                                    <th style="width: 15%;">Duration</th>
+                                    <th style="width: 25%;">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Render actual lines -->
+                                <t t-foreach="doc.complaint_ids" t-as="c">
+                                    <tr>
+                                        <td><span t-field="c.sanskrit_term"/></td>
+                                        <td><span t-field="c.english_term"/></td>
+                                        <td><span t-field="c.duration"/></td>
+                                        <td><span t-field="c.remarks"/></td>
+                                    </tr>
+                                </t>
+                                <!-- Extra blank rows (to make total of 4 rows) -->
+                                <t t-foreach="range(max(0, 4 - len(doc.complaint_ids)))" t-as="i">
+                                    <tr>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- 4. Past History/Associated Conditions -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="4" class="opd-section-title">Past History/Associated Conditions</th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 25%;">Sanskrit Terms</th>
+                                    <th style="width: 35%;">English Description</th>
+                                    <th style="width: 15%;">Duration</th>
+                                    <th style="width: 25%;">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Render blank rows (since model doesn't have it yet) -->
+                                <t t-foreach="range(3)" t-as="i">
+                                    <tr>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- 5. Vitals Examinations -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="8" class="opd-section-title">Vitals Examinations:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="opd-label" style="width: 6%;">BP:</td>
+                                    <td class="opd-nowrap" style="width: 14%;"><span t-field="doc.bp"/></td>
+                                    <td class="opd-label" style="width: 6%;">SpO2:</td>
+                                    <td class="opd-nowrap" style="width: 13%;"><t t-if="doc.spo2"><span t-field="doc.spo2"/>%</t></td>
+                                    <td class="opd-label" style="width: 6%;">HR:</td>
+                                    <td class="opd-nowrap" style="width: 14%;"><t t-if="doc.pulse"><span t-field="doc.pulse"/> bpm</t></td>
+                                    <td class="opd-label" style="width: 8%;">Temp:</td>
+                                    <td class="opd-nowrap" style="width: 14%;"><t t-if="doc.temperature"><span t-field="doc.temperature"/> F</t></td>
+                                </tr>
+                                <tr>
+                                    <td class="opd-label">R/S:</td>
+                                    <td class="opd-nowrap"><t t-if="doc.respiratory_rate"><span t-field="doc.respiratory_rate"/></t></td>
+                                    <td class="opd-label">CNS:</td>
+                                    <td>&#160;</td>
+                                    <td class="opd-label">CVS:</td>
+                                    <td>&#160;</td>
+                                    <td class="opd-label">P/A:</td>
+                                    <td>&#160;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- 6. Ashtavidha Pariksha & Dashavidha Pariksha (Side by Side) -->
+                        <div class="w-100 clearfix" style="margin-bottom: 8px;">
+                            <div class="opd-half-table float-start">
+                                <table class="opd-table" style="margin-bottom: 0px;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2" class="opd-section-title">Ashtavidha Pariksha</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="opd-label" style="width: 50%;">Nadi [Pulse]</td><td style="width: 50%;"><span t-field="doc.nadi"/></td></tr>
+                                        <tr><td class="opd-label">Mala [Stool]</td><td><span t-field="doc.mala"/></td></tr>
+                                        <tr><td class="opd-label">Mutra [Urine]</td><td><span t-field="doc.mutra"/></td></tr>
+                                        <tr><td class="opd-label">Jihwa [Tongue]</td><td><span t-field="doc.jihwa"/></td></tr>
+                                        <tr><td class="opd-label">Shabda [Voice]</td><td><span t-field="doc.shabda"/></td></tr>
+                                        <tr><td class="opd-label">Sparsha [Skin]</td><td><span t-field="doc.sparsha"/></td></tr>
+                                        <tr><td class="opd-label">Drika [Eyes]</td><td><span t-field="doc.drika"/></td></tr>
+                                        <tr><td class="opd-label">Akruti [Build]</td><td><span t-field="doc.akruti"/></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="opd-half-table float-end text-end text-right">
+                                <table class="opd-table" style="margin-bottom: 0px; text-align: left;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2" class="opd-section-title">Dashavidha Pariksha</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="opd-label" style="width: 50%;">Prakriti</td><td style="width: 50%;"><span t-field="doc.prakriti"/></td></tr>
+                                        <tr><td class="opd-label">Vikriti</td><td><span t-field="doc.vikriti"/></td></tr>
+                                        <tr><td class="opd-label">Sara</td><td><span t-field="doc.sara"/></td></tr>
+                                        <tr><td class="opd-label">Samhanana</td><td><span t-field="doc.samhanana"/></td></tr>
+                                        <tr><td class="opd-label">Pramana</td><td><span t-field="doc.pramana"/></td></tr>
+                                        <tr><td class="opd-label">Satmya</td><td><span t-field="doc.satmya"/></td></tr>
+                                        <tr><td class="opd-label">Satva</td><td><span t-field="doc.satva"/></td></tr>
+                                        <tr><td class="opd-label">Ahara Shakti</td><td><span t-field="doc.ahara_shakti"/></td></tr>
+                                        <tr><td class="opd-label">Vyayama Shakti</td><td><span t-field="doc.vyayama_shakti"/></td></tr>
+                                        <tr><td class="opd-label">Vaya</td><td><span t-field="doc.vaya"/></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 7. Nidan Panchak -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" class="opd-section-title">Nidan Panchak</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="opd-label" style="width: 25%;">Nidana [Etiology]</td><td style="width: 75%;">&#160;</td></tr>
+                                <tr><td class="opd-label">Purvarupa [Prodromal Symptoms]</td><td>&#160;</td></tr>
+                                <tr><td class="opd-label">Rupa [Clinical Features]</td><td>&#160;</td></tr>
+                                <tr><td class="opd-label">Upashaya [Factors]</td><td>&#160;</td></tr>
+                                <tr><td class="opd-label">Samprapti [Pathogenesis]</td><td><span t-field="doc.samprapti"/></td></tr>
+                            </tbody>
+                        </table>
+
+                        <!-- 8. Provisional Diagnosis -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" class="opd-section-title">Provisional Diagnosis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="opd-label" style="width: 25%;">Ayurveda Diagnosis</td>
+                                    <td style="width: 75%;"><span t-field="doc.ayurveda_diagnosis"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="opd-label">Modern Diagnosis</td>
+                                    <td><span t-field="doc.modern_diagnosis"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- 9. Radiological/Laboratory Investigations Noted -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" class="opd-section-title">Radiological/Laboratory Investigations Noted</th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 20%;">Date</th>
+                                    <th style="width: 35%;">Investigation Type</th>
+                                    <th style="width: 45%;">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="range(2)" t-as="i">
+                                    <tr>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- 10. Treatment Advised - Oral Medications/Local Applications -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="6" class="opd-section-title">Treatment Advised - Oral Medications/Local Applications</th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 8%;">Sr. No.</th>
+                                    <th style="width: 30%;">Medicine Name</th>
+                                    <th style="width: 15%;">Dosage</th>
+                                    <th style="width: 15%;">Anupana</th>
+                                    <th style="width: 12%;">Duration</th>
+                                    <th style="width: 20%;">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="idx" t-value="1"/>
+                                <t t-foreach="doc.prescription_ids" t-as="p">
+                                    <tr>
+                                        <td class="text-center"><span t-esc="idx"/></td>
+                                        <td><span t-field="p.medicine_id.name"/></td>
+                                        <td><span t-field="p.dose"/></td>
+                                        <td><span t-field="p.anupana"/></td>
+                                        <td><span t-field="p.duration"/></td>
+                                        <td><span t-field="p.remarks"/></td>
+                                    </tr>
+                                    <t t-set="idx" t-value="idx + 1"/>
+                                </t>
+                                <!-- Extra blank rows (to make total of 4 rows instead of 5 to save space) -->
+                                <t t-foreach="range(max(0, 4 - len(doc.prescription_ids)))" t-as="i">
+                                    <tr>
+                                        <td class="text-center"><span t-esc="idx"/></td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                    </tr>
+                                    <t t-set="idx" t-value="idx + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- 11. Panchakarma/Upakarma Procedures -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="5" class="opd-section-title">Panchakarma/Upakarma Procedures</th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 8%;">Sr. No.</th>
+                                    <th style="width: 30%;">Procedure Name</th>
+                                    <th style="width: 22%;">Material Used</th>
+                                    <th style="width: 15%;">Sessions Advised</th>
+                                    <th style="width: 25%;">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="p_idx" t-value="1"/>
+                                <t t-foreach="doc.procedure_advice_ids" t-as="pa">
+                                    <tr>
+                                        <td class="text-center"><span t-esc="p_idx"/></td>
+                                        <td><span t-field="pa.procedure_name"/></td>
+                                        <td><span t-field="pa.material"/></td>
+                                        <td><span t-field="pa.total_sessions"/> (<span t-field="pa.frequency"/>)</td>
+                                        <td>&#160;</td>
+                                    </tr>
+                                    <t t-set="p_idx" t-value="p_idx + 1"/>
+                                </t>
+                                <!-- Extra blank rows (to make total of 3 rows) -->
+                                <t t-foreach="range(max(0, 3 - len(doc.procedure_advice_ids)))" t-as="i">
+                                    <tr>
+                                        <td class="text-center"><span t-esc="p_idx"/></td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                    </tr>
+                                    <t t-set="p_idx" t-value="p_idx + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- 12. Laboratory/Radiology Investigations Advised -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" class="opd-section-title">Laboratory/Radiology Investigations Advised</th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 20%;">Date</th>
+                                    <th style="width: 35%;">Investigation Type</th>
+                                    <th style="width: 45%;">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="range(2)" t-as="i">
+                                    <tr>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                        <td>&#160;</td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- 13. Dietary Advice & Lifestyle Advice/Home Remedies (Side by Side) -->
+                        <div class="w-100 clearfix" style="margin-bottom: 8px;">
+                            <div class="opd-half-table float-start">
+                                <table class="opd-table" style="margin-bottom: 0px;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" class="opd-section-title">Dietary Advice</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 30%;">Category</th>
+                                            <th style="width: 35%;">Good For You</th>
+                                            <th style="width: 35%;">Avoid For You</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="range(3)" t-as="i">
+                                            <tr>
+                                                <td>&#160;</td>
+                                                <td>&#160;</td>
+                                                <td>&#160;</td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="opd-half-table float-end text-end text-right">
+                                <table class="opd-table" style="margin-bottom: 0px; text-align: left;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2" class="opd-section-title">Lifestyle Advice/Home Remedies</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 15%;">Sr. No.</th>
+                                            <th style="width: 85%;">Instructions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="range(3)" t-as="i">
+                                            <tr>
+                                                <td class="text-center"><span t-esc="i + 1"/></td>
+                                                <td>&#160;</td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 14. Follow Up Advice -->
+                        <table class="opd-table">
+                            <thead>
+                                <tr>
+                                    <th class="opd-section-title">Follow Up Advice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="height: 25px;">&#160;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- 15. Consultant Signature -->
+                        <div class="w-100 mt-2 text-end text-right" style="font-size: 10px; font-family: Arial, sans-serif;">
+                            <div style="display: inline-block; width: 180px; border-top: 1px solid #000000; text-align: center; padding-top: 3px;">
+                                <strong>Consultant Signature</strong>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

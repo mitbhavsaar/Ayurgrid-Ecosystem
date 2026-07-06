@@ -1,0 +1,61 @@
+{
+  "pathya": {
+    "general": [
+      "Freshly cooked food",
+      "Warm water",
+      "Seasonal fruits",
+      "Green vegetables",
+      "Ghee in moderation",
+      "Proper meal timings",
+      "Mindful eating"
+    ],
+    "byDosha": {
+      "vata": [
+        "Warm, moist, nourishing foods",
+        "Ghee, oily foods",
+        "Cooked vegetables",
+        "Warm drinks"
+      ],
+      "pitta": [
+        "Cooling, slightly dry foods",
+        "Coconut water",
+        "Butter, cream",
+        "Sweet fruits"
+      ],
+      "kapha": [
+        "Light, dry, warm foods",
+        "Honey",
+        "Spices",
+        "Light grains"
+      ]
+    }
+  },
+  "apathya": {
+    "general": [
+      "Overeating",
+      "Cold foods and drinks",
+      "Leftover food",
+      "Processed foods",
+      "Irregular meal times",
+      "Eating with negative emotions",
+      "Heavy foods at night"
+    ],
+    "byDosha": {
+      "vata": [
+        "Dry, cold, light foods",
+        "Raw vegetables",
+        "Carbonated drinks"
+      ],
+      "pitta": [
+        "Spicy, sour, hot foods",
+        "Alcohol",
+        "Fried foods"
+      ],
+      "kapha": [
+        "Heavy, oily, sweet foods",
+        "Dairy",
+        "Sedentary lifestyle"
+      ]
+    }
+  }
+}

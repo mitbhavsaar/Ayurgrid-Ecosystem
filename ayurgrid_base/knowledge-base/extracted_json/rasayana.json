@@ -1,0 +1,54 @@
+[
+  {
+    "id": "pravana",
+    "name": "Pravana (Rejuvenation)",
+    "description": "Complete body rejuvenation after Panchakarma",
+    "duration": "21-45 days",
+    "benefits": [
+      "Longevity",
+      "Youth",
+      "Immunity",
+      "Memory"
+    ]
+  },
+  {
+    "id": "kutipraveshika",
+    "name": "Kutipraveshika Rasayana",
+    "description": "Indoor Rejuvenation therapy",
+    "duration": "28-48 days",
+    "benefits": [
+      "Complete renewal",
+      "Tissue regeneration"
+    ]
+  },
+  {
+    "id": "vata",
+    "name": "Vata Rasayana",
+    "description": "Nervous system rejuvenation",
+    "duration": "14-30 days",
+    "benefits": [
+      "Neurological health",
+      "Mental clarity"
+    ]
+  },
+  {
+    "id": "pitta",
+    "name": "Pitta Rasayana",
+    "description": "Digestive system rejuvenation",
+    "duration": "14-30 days",
+    "benefits": [
+      "Liver health",
+      "Skin health"
+    ]
+  },
+  {
+    "id": "kapha",
+    "name": "Kapha Rasayana",
+    "description": "Respiratory and immune rejuvenation",
+    "duration": "14-30 days",
+    "benefits": [
+      "Immunity",
+      "Respiratory health"
+    ]
+  }
+]

@@ -24,15 +24,23 @@ class AIConfiguration(models.Model):
         ('nvidia', 'NVIDIA'),
         ('openai', 'OpenAI'),
         ('huggingface', 'HuggingFace')
-    ], string='Embedding Provider')
+    ], string='Embedding Provider', default='nvidia')
+    embedding_model_name = fields.Char(string='Embedding Model Name', default='nvidia/llama-3.2-nv-embedqp-1b-v1')
     vector_db = fields.Selection([
         ('pinecone', 'Pinecone'),
         ('milvus', 'Milvus'),
         ('qdrant', 'Qdrant'),
         ('pgvector', 'pgvector')
-    ], string='Vector DB')
-    rag_enabled = fields.Boolean(string='RAG Enabled')
+    ], string='Vector DB', default='pgvector')
+    rag_enabled = fields.Boolean(string='RAG Enabled', default=True)
     
+    # RAG parameters
+    chunk_size = fields.Integer(string='Chunk Size (tokens)', default=500, help='Maximum size of each chunk in tokens')
+    chunk_overlap = fields.Integer(string='Chunk Overlap (tokens)', default=100, help='Overlap size between consecutive chunks')
+    top_k_results = fields.Integer(string='Top K Results', default=5, help='Number of top matching chunks to retrieve')
+    similarity_threshold = fields.Float(string='Similarity Threshold', default=0.7, help='Minimum similarity score (0.0 to 1.0) to retrieve a chunk')
+    max_context_tokens = fields.Integer(string='Max Context Tokens', default=4000, help='Maximum allowed tokens for retrieved context in the prompt')
+
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
 
     def action_test_connection(self):
@@ -48,7 +56,6 @@ class AIConfiguration(models.Model):
                 "Authorization": f"Bearer {api_key_clean}",
                 "Content-Type": "application/json"
             }
-            # Use a fallback model if none provided
             model = self.model_name.strip() if self.model_name else "meta/llama-3.1-8b-instruct"
             payload = {
                 "model": model,
@@ -73,5 +80,35 @@ class AIConfiguration(models.Model):
                     raise UserError(f'Connection failed! Status: {response.status_code}\nResponse: {response.text}')
             except Exception as e:
                 raise UserError(f'Connection error: {str(e)}')
+        elif self.provider == 'openai':
+            url = "https://api.openai.com/v1/chat/completions"
+            headers = {
+                "Authorization": f"Bearer {api_key_clean}",
+                "Content-Type": "application/json"
+            }
+            model = self.model_name.strip() if self.model_name else "gpt-4o-mini"
+            payload = {
+                "model": model,
+                "messages": [{"role": "user", "content": "Ping!"}],
+                "max_tokens": 10
+            }
+            
+            try:
+                response = requests.post(url, headers=headers, json=payload, timeout=10)
+                if response.status_code == 200:
+                    return {
+                        'type': 'ir.actions.client',
+                        'tag': 'display_notification',
+                        'params': {
+                            'title': 'Connection Successful',
+                            'message': f'Successfully connected to OpenAI API using model: {model}',
+                            'type': 'success',
+                            'sticky': False,
+                        }
+                    }
+                else:
+                    raise UserError(f'Connection failed! Status: {response.status_code}\nResponse: {response.text}')
+            except Exception as e:
+                raise UserError(f'Connection error: {str(e)}')
         else:
-            raise UserError('Test connection is currently only implemented for the NVIDIA provider.')
+            raise UserError('Test connection is currently only implemented for the NVIDIA and OpenAI providers.')

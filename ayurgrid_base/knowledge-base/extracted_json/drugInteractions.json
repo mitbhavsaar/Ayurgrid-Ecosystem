@@ -1,0 +1,146 @@
+[
+  {
+    "herb": "Ashwagandha",
+    "drugClass": "Sedatives/Anti-anxiety",
+    "mechanism": "Additive CNS depression",
+    "effect": "Increased sedation",
+    "severity": "moderate",
+    "recommendation": "Monitor, reduce dose if needed"
+  },
+  {
+    "herb": "Ashwagandha",
+    "drugClass": "Thyroid medications",
+    "mechanism": "May increase thyroid hormone",
+    "effect": "Thyroid overactivity",
+    "severity": "moderate",
+    "recommendation": "Monitor thyroid levels"
+  },
+  {
+    "herb": "Ashwagandha",
+    "drugClass": "Immunosuppressants",
+    "mechanism": "May enhance immunity",
+    "effect": "Reduced drug efficacy",
+    "severity": "moderate",
+    "recommendation": "Avoid or monitor closely"
+  },
+  {
+    "herb": "Ashwagandha",
+    "drugClass": "Hypoglycemics",
+    "mechanism": "Additive blood sugar lowering",
+    "effect": "Hypoglycemia",
+    "severity": "moderate",
+    "recommendation": "Monitor glucose, adjust doses"
+  },
+  {
+    "herb": "Guggulu",
+    "drugClass": "Anticoagulants (Warfarin)",
+    "mechanism": "May increase bleeding risk",
+    "effect": "Enhanced anticoagulation",
+    "severity": "high",
+    "recommendation": "Avoid combination"
+  },
+  {
+    "herb": "Guggulu",
+    "drugClass": "Thyroid medications",
+    "mechanism": "May affect thyroid function",
+    "effect": "Altered thyroid levels",
+    "severity": "moderate",
+    "recommendation": "Monitor thyroid function"
+  },
+  {
+    "herb": "Guggulu",
+    "drugClass": "Statins",
+    "mechanism": "Additive lipid lowering",
+    "effect": "Myopathy risk",
+    "severity": "moderate",
+    "recommendation": "Monitor CK levels"
+  },
+  {
+    "herb": "Turmeric",
+    "drugClass": "Anticoagulants",
+    "mechanism": "Antiplatelet activity",
+    "effect": "Increased bleeding",
+    "severity": "moderate",
+    "recommendation": "Avoid high doses"
+  },
+  {
+    "herb": "Turmeric",
+    "drugClass": "Antacids",
+    "mechanism": "May increase stomach acid",
+    "effect": "Reduced efficacy",
+    "severity": "low",
+    "recommendation": "Take at different times"
+  },
+  {
+    "herb": "Ginger",
+    "drugClass": "Anticoagulants",
+    "mechanism": "Antiplatelet activity",
+    "effect": "Increased bleeding risk",
+    "severity": "moderate",
+    "recommendation": "Monitor, limit dose"
+  },
+  {
+    "herb": "Ginger",
+    "drugClass": "Antidiabetics",
+    "mechanism": "Additive hypoglycemia",
+    "effect": "Low blood sugar",
+    "severity": "moderate",
+    "recommendation": "Monitor glucose"
+  },
+  {
+    "herb": "Garlic",
+    "drugClass": "Anticoagulants (Warfarin)",
+    "mechanism": "Strong antiplatelet",
+    "effect": "Significant bleeding risk",
+    "severity": "high",
+    "recommendation": "Avoid combination"
+  },
+  {
+    "herb": "Garlic",
+    "drugClass": "HIV Protease inhibitors",
+    "mechanism": "May reduce drug levels",
+    "effect": "Reduced efficacy",
+    "severity": "moderate",
+    "recommendation": "Avoid combination"
+  },
+  {
+    "herb": "Garlic",
+    "drugClass": "Oral contraceptives",
+    "mechanism": "May affect efficacy",
+    "effect": "Reduced contraception",
+    "severity": "moderate",
+    "recommendation": "Use backup"
+  },
+  {
+    "herb": "Ginkgo",
+    "drugClass": "Anticoagulants",
+    "mechanism": "Strong antiplatelet",
+    "effect": "Bleeding risk",
+    "severity": "high",
+    "recommendation": "Avoid combination"
+  },
+  {
+    "herb": "Shatavari",
+    "drugClass": "Diuretics",
+    "mechanism": "May cause electrolyte imbalance",
+    "effect": "Potassium loss",
+    "severity": "moderate",
+    "recommendation": "Monitor electrolytes"
+  },
+  {
+    "herb": "Shatavari",
+    "drugClass": "Digoxin",
+    "mechanism": "May increase potassium",
+    "effect": "Arrhythmia risk",
+    "severity": "moderate",
+    "recommendation": "Monitor levels"
+  },
+  {
+    "herb": "St. Johns Wort",
+    "drugClass": "Many drugs",
+    "mechanism": "Cytochrome P450 induction",
+    "effect": "Reduced drug levels",
+    "severity": "high",
+    "recommendation": "Avoid most combinations"
+  }
+]

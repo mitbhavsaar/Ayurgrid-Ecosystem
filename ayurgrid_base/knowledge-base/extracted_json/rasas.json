@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Madhura (Sweet)",
+    "effect": "nourishing, moistening, heavy",
+    "benefits": "Vata+Pitta",
+    "excess": "Kapha increase, obesity"
+  },
+  {
+    "name": "Amla (Sour)",
+    "effect": "stimulating, digestive, warming",
+    "benefits": "Vata+Kapha",
+    "excess": "Pitta increase, acidity"
+  },
+  {
+    "name": "Lavana (Salt)",
+    "effect": "moistening, laxative, penetrating",
+    "benefits": "Vata+Kapha",
+    "excess": "Pitta increase, edema"
+  },
+  {
+    "name": "Tikta (Bitter)",
+    "effect": "cleansing, cooling, light",
+    "benefits": "Pitta+Kapha",
+    "excess": "Vata increase, depletion"
+  },
+  {
+    "name": "Kashaya (Astringent)",
+    "effect": "drying, firming, contracting",
+    "benefits": "Pitta+Kapha",
+    "excess": "Vata increase, dryness"
+  },
+  {
+    "name": "Katu (Pungent)",
+    "effect": "stimulating, drying, heating",
+    "benefits": "Vata+Kapha",
+    "excess": "Pitta increase, inflammation"
+  }
+]

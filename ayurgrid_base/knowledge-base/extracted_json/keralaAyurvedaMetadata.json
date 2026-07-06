@@ -1,0 +1,28 @@
+{
+  "totalDocuments": 8,
+  "types": [
+    "educational",
+    "faq",
+    "product",
+    "clinic_program",
+    "catalog"
+  ],
+  "categories": [
+    "Foundations",
+    "Dosha",
+    "Patient Education",
+    "Herbal Supplements",
+    "Topical Oils",
+    "Digestive Support",
+    "Clinical Programs",
+    "Product Catalog"
+  ],
+  "typeCounts": {
+    "educational": 2,
+    "faq": 1,
+    "product": 3,
+    "clinic_program": 1,
+    "catalog": 1
+  },
+  "source": "Kerala Ayurveda RAG (GitHub VARUN3WARE)"
+}

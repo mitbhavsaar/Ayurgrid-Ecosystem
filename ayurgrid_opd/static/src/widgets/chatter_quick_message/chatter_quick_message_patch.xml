@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.Chatter" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-mail-Chatter-topbar')]" position="after">
+            <t t-if="props.threadModel === 'ag.opd.consultation'">
+                <div class="o-mail-Chatter-quickMessage d-flex align-items-center p-2 bg-light border-top border-bottom">
+                    <textarea
+                        class="form-control me-2 o-mail-Chatter-quickMessageInput"
+                        rows="2"
+                        placeholder="Type clinical note to auto-fill tabs (e.g., Pulse is 72, temp 98.4...)"
+                        t-model="state.quickMessage"
+                        t-on-keydown="onQuickMessageKeydown"
+                        style="resize: none; font-size: 13px;"
+                    />
+                    <button class="btn btn-success d-flex align-items-center justify-content-center" t-on-click="sendQuickMessage" style="width: 38px; height: 38px; border-radius: 50%; background-color: #00a884; border-color: #00a884;">
+                        <i class="fa fa-paper-plane text-white" />
+                    </button>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

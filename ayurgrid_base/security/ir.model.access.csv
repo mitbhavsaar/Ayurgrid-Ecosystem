@@ -14,3 +14,16 @@ access_ag_patient_super_admin,ag.patient.super.admin,model_ag_patient,group_ag_s
 access_ag_patient_receptionist,ag.patient.receptionist,model_ag_patient,group_ag_receptionist,1,1,1,0
 access_ag_patient_doctor,ag.patient.doctor,model_ag_patient,group_ag_doctor,1,1,0,0
 access_ag_ai_configuration_super_admin,ag.ai.configuration.super.admin,model_ag_ai_configuration,group_ag_super_admin,1,1,1,1
+access_ag_rag_document_super_admin,ag.rag.document.super.admin,model_ag_rag_document,group_ag_super_admin,1,1,1,1
+access_ag_rag_document_hospital_admin,ag.rag.document.hospital_admin,model_ag_rag_document,group_ag_hospital_admin,1,0,0,0
+access_ag_rag_document_doctor,ag.rag.document.doctor,model_ag_rag_document,group_ag_doctor,1,0,0,0
+access_ag_rag_chunk_super_admin,ag.rag.chunk.super.admin,model_ag_rag_chunk,group_ag_super_admin,1,1,1,1
+access_ag_rag_chunk_hospital_admin,ag.rag.chunk.hospital_admin,model_ag_rag_chunk,group_ag_hospital_admin,1,0,0,0
+access_ag_rag_chunk_doctor,ag.rag.chunk.doctor,model_ag_rag_chunk,group_ag_doctor,1,0,0,0
+access_ag_ai_query_log_super_admin,ag.ai.query.log.super.admin,model_ag_ai_query_log,group_ag_super_admin,1,1,1,1
+access_ag_ai_query_log_hospital_admin,ag.ai.query.log.hospital_admin,model_ag_ai_query_log,group_ag_hospital_admin,1,1,1,0
+access_ag_ai_query_log_doctor,ag.ai.query.log.doctor,model_ag_ai_query_log,group_ag_doctor,1,1,1,0
+access_ag_rag_sync_wizard_super_admin,ag.rag.sync.wizard.super.admin,model_ag_rag_sync_wizard,group_ag_super_admin,1,1,1,1
+access_ag_rag_sync_wizard_hospital_admin,ag.rag.sync.wizard.hospital_admin,model_ag_rag_sync_wizard,group_ag_hospital_admin,1,1,1,1
+access_ag_rag_sync_wizard_doctor,ag.rag.sync.wizard.doctor,model_ag_rag_sync_wizard,group_ag_doctor,1,1,1,1
+

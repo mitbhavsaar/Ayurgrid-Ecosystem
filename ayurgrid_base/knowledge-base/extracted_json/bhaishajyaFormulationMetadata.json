@@ -1,0 +1,29 @@
+{
+  "totalFormulations": 176,
+  "uniqueTypes": 8,
+  "uniqueCategories": 11,
+  "source": "Bhaishajya Kalpana Kosha (Amidha Ayurveda)",
+  "typeCounts": {
+    "Churna": 17,
+    "Vati/Gutika": 53,
+    "Ghrita": 12,
+    "Taila": 20,
+    "Asava/Arishta": 19,
+    "Avaleha/Leha": 14,
+    "Kwatha/Kashayam": 23,
+    "Bhasma/Pishti": 18
+  },
+  "categoryCounts": {
+    "Digestive System": 32,
+    "Respiratory System": 12,
+    "Urinary System": 9,
+    "Detox (Ama Pachana)": 13,
+    "Fever (Jwara)": 13,
+    "Musculoskeletal System": 24,
+    "Nervous System": 18,
+    "Reproductive System": 12,
+    "Rejuvenative (Rasayana)": 25,
+    "Skin (Twak Roga)": 16,
+    "Aphrodisiac (Vajikarana)": 2
+  }
+}

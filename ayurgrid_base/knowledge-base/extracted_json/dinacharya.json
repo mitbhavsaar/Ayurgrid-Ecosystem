@@ -1,0 +1,57 @@
+[
+  {
+    "time": "4-6 AM",
+    "activity": "Brahmamuhurta - Spiritual practices",
+    "benefit": "Mental clarity, spiritual growth"
+  },
+  {
+    "time": "6-7 AM",
+    "activity": "Exercise, yoga, pranayama",
+    "benefit": "Physical strength, dosha balance"
+  },
+  {
+    "time": "7-8 AM",
+    "activity": "Abhyanga (oil massage), bath",
+    "benefit": "Nourishment, circulation"
+  },
+  {
+    "time": "8-9 AM",
+    "activity": "Breakfast (light)",
+    "benefit": "Energy for day"
+  },
+  {
+    "time": "10-11 AM",
+    "activity": "Main meal",
+    "benefit": "Peak digestion"
+  },
+  {
+    "time": "12-1 PM",
+    "activity": "Work/activity",
+    "benefit": "Productivity"
+  },
+  {
+    "time": "3-4 PM",
+    "activity": "Light snack",
+    "benefit": "Sustained energy"
+  },
+  {
+    "time": "6-7 PM",
+    "activity": "Evening walk, light activity",
+    "benefit": "Digestion, circulation"
+  },
+  {
+    "time": "7-8 PM",
+    "activity": "Dinner (light)",
+    "benefit": "Easy digestion"
+  },
+  {
+    "time": "9-10 PM",
+    "activity": "Relaxation, reading",
+    "benefit": "Mental preparation for sleep"
+  },
+  {
+    "time": "10 PM",
+    "activity": "Sleep",
+    "benefit": "Tissue repair, memory consolidation"
+  }
+]

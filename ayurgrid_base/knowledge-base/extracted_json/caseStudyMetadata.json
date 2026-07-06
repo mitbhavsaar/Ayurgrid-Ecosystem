@@ -1,0 +1,17 @@
+{
+  "totalCases": 303,
+  "totalTreatments": 45,
+  "source": "3Ayur case-studies WhatsApp",
+  "categoryCounts": {
+    "clinical_case": 214,
+    "digestive": 11,
+    "ent": 23,
+    "cardiovascular": 8,
+    "respiratory": 2,
+    "gynecological": 24,
+    "skin_disease": 5,
+    "pediatric": 10,
+    "infectious": 5,
+    "musculoskeletal": 1
+  }
+}

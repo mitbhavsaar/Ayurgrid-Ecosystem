@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Madhura (Sweet)",
+    "effect": "Nourishing, building",
+    "example": "Most sweet herbs"
+  },
+  {
+    "name": "Katu (Pungent)",
+    "effect": "Stimulating, cleansing",
+    "example": "Most pungent herbs"
+  },
+  {
+    "name": "Amla (Sour)",
+    "effect": "Digestive, stimulating",
+    "example": "Sour fruits"
+  }
+]

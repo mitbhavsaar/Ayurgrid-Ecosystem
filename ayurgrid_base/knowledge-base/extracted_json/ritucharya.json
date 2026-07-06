@@ -1,0 +1,77 @@
+{
+  "hemanta": {
+    "months": "Nov-Feb",
+    "vata": {
+      "pathya": "Heavy, nourishing",
+      "apathya": "Light, dry"
+    },
+    "pitta": {
+      "pathya": "Slightly warming",
+      "apathya": "Cold, raw"
+    },
+    "kapha": {
+      "pathya": "Light, dry",
+      "apathya": "Heavy, oily"
+    }
+  },
+  "shishira": {
+    "months": "Feb-Apr",
+    "vata": {
+      "pathya": "Heavy",
+      "apathya": "Dry"
+    },
+    "pitta": {
+      "pathya": "Cooling",
+      "apathya": "Heating"
+    },
+    "kapha": {
+      "pathya": "Dry",
+      "apathya": "Heavy"
+    }
+  },
+  "vasanta": {
+    "months": "Apr-Jun",
+    "vata": {
+      "pathya": "Nourishing",
+      "apathya": "Dry"
+    },
+    "pitta": {
+      "pathya": "Sweet, light",
+      "apathya": "Sour, salty"
+    },
+    "kapha": {
+      "pathya": "Light, dry",
+      "apathya": "Heavy, oily"
+    }
+  },
+  "grishma": {
+    "months": "Jun-Sep",
+    "vata": {
+      "pathya": "Heavy, oily",
+      "apathya": "Dry, light"
+    },
+    "pitta": {
+      "pathya": "Sweet, cooling",
+      "apathya": "Sour, salty, hot"
+    },
+    "kapha": {
+      "pathya": "Light, dry",
+      "apathya": "Heavy, oily"
+    }
+  },
+  "varsha": {
+    "months": "Sep-Nov",
+    "vata": {
+      "pathya": "Slightly heavy",
+      "apathya": "Light"
+    },
+    "pitta": {
+      "pathya": "Sweet",
+      "apathya": "Sour, salty"
+    },
+    "kapha": {
+      "pathya": "Light, dry",
+      "apathya": "Heavy, oily"
+    }
+  }
+}

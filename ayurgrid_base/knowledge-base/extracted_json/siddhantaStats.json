@@ -1,0 +1,25 @@
+{
+  "totalPrinciples": 162,
+  "categories": [
+    "General Concepts",
+    "Dosha",
+    "Dhatu",
+    "Mala",
+    "Agni",
+    "Dravya Guna",
+    "Roga Nidana",
+    "Chikitsa"
+  ],
+  "categoryCounts": {
+    "General Concepts": 37,
+    "Dosha": 21,
+    "Dhatu": 15,
+    "Mala": 2,
+    "Agni": 6,
+    "Dravya Guna": 15,
+    "Roga Nidana": 31,
+    "Chikitsa": 35
+  },
+  "source": "Siddhanta Kosha (Amidha Ayurveda / Zenodo CC BY 4.0)",
+  "doi": "10.5281/zenodo.17481343"
+}

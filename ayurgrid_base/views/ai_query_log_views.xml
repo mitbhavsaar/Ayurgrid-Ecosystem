@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ag_ai_query_log_list" model="ir.ui.view">
+        <field name="name">ag.ai.query.log.list</field>
+        <field name="model">ag.ai.query.log</field>
+        <field name="arch" type="xml">
+            <list string="AI Query Log History">
+                <field name="create_date" string="Date"/>
+                <field name="patient_id"/>
+                <field name="user_id"/>
+                <field name="query" string="Symptoms / Query"/>
+                <field name="response_time"/>
+                <field name="status" widget="badge" decoration-success="status == 'success'" decoration-danger="status == 'failed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ag_ai_query_log_form" model="ir.ui.view">
+        <field name="name">ag.ai.query.log.form</field>
+        <field name="model">ag.ai.query.log</field>
+        <field name="arch" type="xml">
+            <form string="AI Diagnosis Assistant">
+                <header>
+                    <button name="action_run_query" type="object" string="Ask AyurGrid AI" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="response_time"/>
+                            <field name="status" widget="badge" decoration-success="status == 'success'" decoration-danger="status == 'failed'"/>
+                        </group>
+                    </group>
+                    <div class="oe_title">
+                        <label for="query" class="oe_edit_only" string="Describe Patient Symptoms or Ask a Question:"/>
+                        <h2>
+                            <field name="query" placeholder="Example: Patient presents with chronic fatigue, low digestive fire (mandagni), mild constipation, and high anxiety..." class="w-100"/>
+                        </h2>
+                    </div>
+                    <notebook>
+                        <page string="AI Diagnosis &amp; Guidance">
+                            <group>
+                                <field name="response" widget="html" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Retrieved Knowledge Context">
+                            <group>
+                                <field name="retrieved_chunks" widget="text" nolabel="1" placeholder="No context retrieved yet. Run the query to retrieve matches from the knowledge base." class="text-monospace"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ag_ai_query_log" model="ir.actions.act_window">
+        <field name="name">AI Diagnosis Assistant</field>
+        <field name="res_model">ag.ai.query.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Start a new AI session.
+            </p>
+            <p>
+                Describe the patient's symptoms or enter an Ayurvedic question to get instant, context-aware assistance derived from classical texts like Charaka Samhita and Sushruta Samhita.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,26 @@
+{
+  "totalDiseases": 275,
+  "source": "Planet Ayurveda",
+  "categoryCounts": {
+    "cardiovascular": 14,
+    "respiratory": 12,
+    "digestive": 17,
+    "skin_dermatology": 20,
+    "general": 82,
+    "neurological": 20,
+    "gynecological": 14,
+    "hematological": 10,
+    "musculoskeletal": 21,
+    "psychiatric": 12,
+    "autoimmune": 4,
+    "oncology": 3,
+    "pediatric": 2,
+    "male_reproductive": 7,
+    "ophthalmology": 7,
+    "infectious": 14,
+    "renal_urological": 9,
+    "endocrine_metabolic": 5,
+    "ent": 2
+  },
+  "avgSections": 10
+}

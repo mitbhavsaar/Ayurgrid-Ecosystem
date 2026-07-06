@@ -1,0 +1,106 @@
+{
+  "highRisk": [
+    {
+      "herb": "St. Johns Wort",
+      "drugs": [
+        "Warfarin",
+        "SSRI",
+        "Birth control",
+        "HIV meds",
+        "Chemotherapy"
+      ],
+      "reason": "Strong enzyme induction"
+    },
+    {
+      "herb": "Garlic",
+      "drugs": [
+        "Warfarin",
+        "HIV protease inhibitors"
+      ],
+      "reason": "Bleeding risk, reduced drug levels"
+    },
+    {
+      "herb": "Ginkgo",
+      "drugs": [
+        "Warfarin",
+        "Aspirin",
+        "Clopidogrel"
+      ],
+      "reason": "Bleeding risk"
+    },
+    {
+      "herb": "Kava",
+      "drugs": [
+        "Acetaminophen",
+        "Sedatives"
+      ],
+      "reason": "Liver toxicity, CNS depression"
+    }
+  ],
+  "moderateRisk": [
+    {
+      "herb": "Ashwagandha",
+      "drugs": [
+        "Sedatives",
+        "Thyroid",
+        "Immunosuppressants"
+      ],
+      "reason": "Additive effects"
+    },
+    {
+      "herb": "Guggulu",
+      "drugs": [
+        "Statins",
+        "Thyroid",
+        "Anticoagulants"
+      ],
+      "reason": "Various mechanisms"
+    },
+    {
+      "herb": "Turmeric",
+      "drugs": [
+        "Anticoagulants",
+        "Antacids"
+      ],
+      "reason": "Bleeding risk, absorption"
+    },
+    {
+      "herb": "Ginger",
+      "drugs": [
+        "Anticoagulants",
+        "Diabetes"
+      ],
+      "reason": "Bleeding, hypoglycemia"
+    }
+  ],
+  "safeToCombine": [
+    {
+      "herb": "Arjuna",
+      "drugs": [
+        "Most cardiac medications"
+      ],
+      "reason": "Generally safe, may be beneficial"
+    },
+    {
+      "herb": "Amla",
+      "drugs": [
+        "Most medications"
+      ],
+      "reason": "General tonic, may enhance absorption"
+    },
+    {
+      "herb": "Guduchi",
+      "drugs": [
+        "Most medications"
+      ],
+      "reason": "Immune modulator, generally safe"
+    },
+    {
+      "herb": "Turmeric",
+      "drugs": [
+        "Many - with monitoring"
+      ],
+      "reason": "Beneficial but monitor bleeding risk"
+    }
+  ]
+}

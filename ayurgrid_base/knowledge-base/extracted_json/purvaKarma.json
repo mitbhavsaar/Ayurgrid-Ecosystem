@@ -1,0 +1,52 @@
+[
+  {
+    "id": "deepana",
+    "name": "Appetite Enhancement",
+    "description": "Medications to improve digestive fire before main treatment",
+    "duration": "3-5 days",
+    "indications": [
+      "Poor appetite",
+      "Ama accumulation"
+    ]
+  },
+  {
+    "id": "pachana",
+    "name": "Ama Digestion",
+    "description": "Medications to digest toxins before purification",
+    "duration": "3-5 days",
+    "indications": [
+      "Ama",
+      "Indigestion"
+    ]
+  },
+  {
+    "id": "snehana",
+    "name": "Oleation",
+    "description": "Internal and external administration of medicated ghee/oil",
+    "types": [
+      "Sthanika (local)",
+      "Shamana (internal)"
+    ],
+    "duration": "3-7 days",
+    "indications": [
+      "Vata disorders",
+      "Before Panchakarma"
+    ]
+  },
+  {
+    "id": "swedana",
+    "name": "Fomentation",
+    "description": "Therapeutic sweating to open channels",
+    "types": [
+      "Nadi (steam)",
+      "Pinda (bolus)",
+      "Avagaha (bath)"
+    ],
+    "duration": "3-7 days",
+    "indications": [
+      "Stiffness",
+      "Pain",
+      "Before Shodhana"
+    ]
+  }
+]

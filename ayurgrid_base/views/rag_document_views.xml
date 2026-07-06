@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Document Views -->
+    <record id="view_ag_rag_document_list" model="ir.ui.view">
+        <field name="name">ag.rag.document.list</field>
+        <field name="model">ag.rag.document</field>
+        <field name="arch" type="xml">
+            <list string="AyurGrid Knowledge Base Documents" decoration-success="state == 'processed'" decoration-danger="state == 'failed'" decoration-warning="state == 'draft'" create="0">
+                <header>
+                    <button name="%(action_ag_rag_sync_wizard)d" type="action" string="Sync Knowledge Base" class="oe_highlight"/>
+                </header>
+                <field name="name"/>
+                <field name="source_type"/>
+                <field name="source_file"/>
+                <field name="chunk_count"/>
+                <field name="state" widget="badge"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ag_rag_document_form" model="ir.ui.view">
+        <field name="name">ag.rag.document.form</field>
+        <field name="model">ag.rag.document</field>
+        <field name="arch" type="xml">
+            <form string="Knowledge Base Document" create="0">
+                <header>
+                    <button name="%(action_ag_rag_sync_wizard)d" type="action" string="Sync Knowledge Base" class="oe_highlight"/>
+                    <button name="action_rebuild_embeddings" type="object" string="Rebuild Chunks (This Doc)" class="oe_highlight" invisible="state == 'failed' and content == ''"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Document Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="source_type"/>
+                            <field name="source_file"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="state" widget="badge" decoration-success="state == 'processed'" decoration-danger="state == 'failed'" decoration-warning="state == 'draft'"/>
+                            <field name="chunk_count"/>
+                        </group>
+                    </group>
+                    <group string="Error Details" invisible="error_message == False">
+                        <field name="error_message" readonly="1" class="text-danger"/>
+                    </group>
+                    <notebook>
+                        <page string="Content Preview">
+                            <group>
+                                <field name="content" widget="text" nolabel="1" placeholder="Content..."/>
+                            </group>
+                        </page>
+                        <page string="Chunks &amp; Embeddings">
+                            <field name="chunk_ids" readonly="1">
+                                <list string="Chunks" decoration-success="state == 'completed'" decoration-danger="state == 'failed'" decoration-warning="state == 'pending'">
+                                    <field name="sequence"/>
+                                    <field name="chunk_text"/>
+                                    <field name="token_count"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Metadata">
+                            <group>
+                                <field name="metadata" widget="text" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ag_rag_document_search" model="ir.ui.view">
+        <field name="name">ag.rag.document.search</field>
+        <field name="model">ag.rag.document</field>
+        <field name="arch" type="xml">
+            <search string="Search Documents">
+                <field name="name" string="Document Title"/>
+                <field name="source_file" string="File Path"/>
+                <filter string="Processed" name="processed" domain="[('state', '=', 'processed')]"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Source Type" name="group_by_type" context="{'group_by':'source_type'}"/>
+                    <filter string="Status" name="group_by_state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Chunk Views -->
+    <record id="view_ag_rag_chunk_list" model="ir.ui.view">
+        <field name="name">ag.rag.chunk.list</field>
+        <field name="model">ag.rag.chunk</field>
+        <field name="arch" type="xml">
+            <list string="Document Chunks" decoration-success="state == 'completed'" decoration-danger="state == 'failed'" decoration-warning="state == 'pending'">
+                <field name="document_id"/>
+                <field name="sequence"/>
+                <field name="chunk_text"/>
+                <field name="token_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ag_rag_chunk_form" model="ir.ui.view">
+        <field name="name">ag.rag.chunk.form</field>
+        <field name="model">ag.rag.chunk</field>
+        <field name="arch" type="xml">
+            <form string="Chunk Details">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="document_id" readonly="1"/>
+                            <field name="sequence" readonly="1"/>
+                            <field name="token_count" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="state" widget="badge" decoration-success="state == 'completed'" decoration-danger="state == 'failed'" decoration-warning="state == 'pending'"/>
+                        </group>
+                    </group>
+                    <group string="Chunk Content">
+                        <field name="chunk_text" readonly="1"/>
+                    </group>
+                    <group string="Embedding Vector (Raw)" invisible="embedding_vector == False">
+                        <field name="embedding_vector" readonly="1"/>
+                    </group>
+                    <group string="Error Message" invisible="error_message == False">
+                        <field name="error_message" readonly="1" class="text-danger"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bulk_rebuild_embeddings" model="ir.actions.server">
+        <field name="name">Rebuild Chunks &amp; Embeddings</field>
+        <field name="model_id" ref="model_ag_rag_document"/>
+        <field name="binding_model_id" ref="model_ag_rag_document"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                records.action_rebuild_embeddings()
+        </field>
+    </record>
+
+    <record id="action_ag_rag_document" model="ir.actions.act_window">
+        <field name="name">Knowledge Base Dashboard</field>
+        <field name="res_model">ag.rag.document</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_ag_rag_document_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Import and manage Ayurvedic knowledge sources.
+            </p>
+            <p>
+                Click "Import / Scan Files" in a document's form view to import the raw documents, rebuild embeddings, and construct vector index indices using pgvector.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_ag_rag_chunk" model="ir.actions.act_window">
+        <field name="name">Document Chunks</field>
+        <field name="res_model">ag.rag.chunk</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

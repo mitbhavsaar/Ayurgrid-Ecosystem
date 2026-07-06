@@ -3,6 +3,7 @@ from odoo import api, fields, models
 class OPDTherapyPrescription(models.Model):
     _name = 'ag.opd.therapy.prescription'
     _description = 'Therapy Prescription Advice'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string='Reference', required=True, copy=False, readonly=True, default='New')
     consultation_id = fields.Many2one('ag.opd.consultation', string='Consultation', ondelete='cascade')
@@ -26,16 +27,34 @@ class OPDTherapyPrescription(models.Model):
         return super(OPDTherapyPrescription, self).create(vals_list)
 
     def action_generate_sessions(self):
-        # Basic logic to generate session records
+        from datetime import timedelta, datetime
         for rec in self:
-            if not rec.session_ids:
-                for i in range(1, rec.total_sessions + 1):
-                    self.env['ag.opd.therapy.session'].create({
-                        'prescription_id': rec.id,
-                        'session_number': i,
-                        'session_date': rec.start_date, # Simple default, real logic handles frequency
-                        'status': 'scheduled'
-                    })
+            if rec.session_ids:
+                rec.session_ids.unlink()
+            
+            if not rec.start_date:
+                continue
+                
+            current_date = rec.start_date
+            
+            if rec.frequency == 'daily':
+                delta = timedelta(days=1)
+            elif rec.frequency == 'alternate':
+                delta = timedelta(days=2)
+            elif rec.frequency == 'weekly':
+                delta = timedelta(days=7)
+            else:
+                delta = timedelta(days=1)
+                
+            for i in range(1, rec.total_sessions + 1):
+                session_datetime = datetime.combine(current_date, datetime.min.time())
+                self.env['ag.opd.therapy.session'].create({
+                    'prescription_id': rec.id,
+                    'session_number': i,
+                    'session_date': session_datetime,
+                    'status': 'scheduled'
+                })
+                current_date += delta
 
 class OPDTherapySession(models.Model):
     _name = 'ag.opd.therapy.session'

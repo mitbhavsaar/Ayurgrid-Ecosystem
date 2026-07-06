@@ -1,0 +1,26 @@
+{
+  "Sutra Sthana": {
+    "totalChapters": 30,
+    "focus": "Fundamental principles, daily regimen, disease classification, treatment principles, dietetics",
+    "keyChapters": [
+      "Deerghanjiviteeya - Tridosha, Rasa, Six principles",
+      "Matrashiteeya - Daily regimen (Dinacharya)",
+      "Tasyashiteeya - Seasonal regimen (Ritucharya)",
+      "Snehadhyaya - Oleation therapy",
+      "Swedadhyaya - Fomentation therapy"
+    ]
+  },
+  "Chikitsa Sthana": {
+    "totalChapters": 30,
+    "focus": "Treatment of all diseases with detailed formulations",
+    "keyChapters": [
+      "Rasayana - Rejuvenation",
+      "Vajikarana - Fertility",
+      "Jwara - Fever",
+      "Prameha - Diabetes/Urinary",
+      "Kushtha - Skin diseases",
+      "Unmada - Mental disorders",
+      "Vata Vyadhi - Neurological disorders"
+    ]
+  }
+}

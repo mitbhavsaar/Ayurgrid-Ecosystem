@@ -20,6 +20,7 @@
             <form string="AI Configuration">
                 <header>
                     <button name="action_test_connection" type="object" string="Test Connection" class="oe_highlight" invisible="ai_enabled == False"/>
+                    <button name="%(action_ag_rag_sync_wizard)d" type="action" string="Sync Knowledge Base" class="oe_highlight" invisible="ai_enabled == False"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -44,7 +45,13 @@
                         </group>
                         <group invisible="rag_enabled == False">
                             <field name="embedding_provider"/>
+                            <field name="embedding_model_name"/>
                             <field name="vector_db"/>
+                            <field name="chunk_size"/>
+                            <field name="chunk_overlap"/>
+                            <field name="top_k_results"/>
+                            <field name="similarity_threshold"/>
+                            <field name="max_context_tokens"/>
                         </group>
                     </group>
                 </sheet>
